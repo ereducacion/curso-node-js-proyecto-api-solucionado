@@ -32,7 +32,7 @@ const list = (req, res) => {
 const show = (req, res) => {
   const id = req.params.id
   Cerveza.findOne({ _id: id }, (err, cerveza) => {
-    if (!ObjectId.isValid(id)) {
+    if (!ObjectId.isValid(id)) { // el id por el que estoy buscando no es correcto
       return res.status(404).send()
     }
     if (err) {
@@ -40,7 +40,7 @@ const show = (req, res) => {
         message: 'Se ha producido un error al obtener la cerveza'
       })
     }
-    if (!cerveza) {
+    if (!cerveza) { // no ha encontrado el id, el id está bien construido
       return res.status(404).json({
         message: 'No tenemos esta cerveza'
       })

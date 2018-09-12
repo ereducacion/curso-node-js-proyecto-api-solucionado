@@ -55,9 +55,9 @@ describe('Recurso cervezas', () => {
     it('La obtiene mediante id', done => {
       request(app)
         .get(`/api/cervezas/${cervezas[0]._id.toHexString()}`)
-        .expect(200)
+        .expect(200) // este expect es el del request
         .expect(res => {
-          expect(res.body.nombre).to.be.equal(cervezas[0].nombre)
+          expect(res.body.nombre).to.be.equal(cervezas[0].nombre) // el del chai
         })
         .end(done)
     })
